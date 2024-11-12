@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+}
+
+h1{
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 50px;
+    color: #010101;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+}
+
+.wrapper{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piano{
+    display: flex;
+}
+
+.key{
+    height: calc(var(--width)*4);
+    width: var(--width);
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.white{
+    --width:100px;
+    background: linear-gradient(to bottom, #fff, #f3f3f3);
+    border: 1px solid #333;
+    border-radius:  0px 0px 10px 10px;
+    color: #333;
+}
+
+.white:active{
+    background-color: #CCC;
+}
+
+.black{
+    --width:60px;
+    background: linear-gradient(to bottom, #000, #333);
+    margin-left: calc(var(--width)/-2);
+    margin-right: calc(var(--width)/-2);;
+    z-index: 2;
+    border: 1px solid #333;
+    border-radius:  0px 0px 8px 8px;
+    color: #fff;
+}
+
+.black:active{
+    background-color: #333;
+}
+
+.note-label{
+    font-size: 12px;
+    color: inherit;
+    position:absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.key.active{
+    transform: translateY(4px);
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .key.white {
+        --width: 60px; /* Reduce width for smaller screens */
+    }
+
+    .key.black {
+        --width: 40px; /* Adjust black key width to match white keys on mobile */
+    }
+
+    .note-label {
+        font-size: 10px; /* Make note label smaller on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .key.white {
+        --width: 50px; /* Further reduce width for very small screens */
+    }
+
+    .key.black {
+        --width: 30px; /* Further adjust black key width */
+    }
+
+    .note-label {
+        font-size: 8px;
+    }
+}
